@@ -12,8 +12,8 @@ def _test_model(model, input_shape, output_sequence_length, french_vocab_size):
     assert model.input_shape == (None, *input_shape[1:]),\
         'Wrong input shape. Found input shape {} using parameter input_shape={}'.format(model.input_shape, input_shape)
 
-    # Amendment: In the output shape the last coordinate should be french_vocab_size + 1,
-    # since an additional index (0) is used for the mark: '<PAD>'.
+    # Amendment: The output shape should match with french_vocab_size + 1,
+    # since an extra index: 0 is added for the mark '<PAD>'
     assert model.output_shape == (None, output_sequence_length, french_vocab_size + 1),\
         'Wrong output shape. Found output shape {} using parameters output_sequence_length={} and french_vocab_size={}'\
             .format(model.output_shape, output_sequence_length, french_vocab_size)
